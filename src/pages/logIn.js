@@ -8,6 +8,9 @@ import Descriptor from "../components/Descriptor"
 import {Form} from "react-bootstrap"
 import FormValidation from "../components/FormValidation"
 import 'bootstrap/dist/css/bootstrap.min.css'
+import usernameIcon from "../assets/images/username.svg"
+import passwordIcon from "../assets/images/password.svg"
+import togglePassword from "../assets/images/toggle_password.svg"
 
 // Page style
 import '../styles/logIn.css';
@@ -104,8 +107,12 @@ export default function UserLogIn() {
                         <p>USER LOGIN</p>
                     </div>
                     <form className="client-login-form">
-                        <Entry handler={handleUsername} type="text" identifier="username-text" label="Enter your username"/>
-                        <Entry handler={handlePassword} type="password" identifier="password-text" label="Enter your password"/>
+                        <Entry handler={handleUsername} type="text" identifier="username-text" label="Enter your username" icon={usernameIcon}/>
+                        <Entry handler={handlePassword} type="password" identifier="password-text" label="Enter your password" icon={passwordIcon} isPasswordEntry={
+                        <div className='toggle-icon'>
+                            <img src={togglePassword} alt="toggle icon" width={"30px"}/>
+                        </div>
+                    }/>
                         <div className='more-login'>
                             <Form.Check name="remember"  className="remember-value" label="Remember me" value="isRememberd"/>
                             <a href='#' style={{textDecoration:'none', color:'var(--primary)'}}>Forgot password?</a>
