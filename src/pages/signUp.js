@@ -141,7 +141,7 @@ export default function UserSignUp() {
 
     return (
         <div className='main-c'>
-            <Descriptor intro="Nice to see you"  welcome={<p className='welcome'>Welcome to <span style={{color:"var(--secondary)"}}>friendly</span></p>} encourager={<p className='encourager'>Here is a very nice social network where you can have <strong>infinite fun</strong>. So, if you need to <span>beautify your days</span>, you are at the right place.</p>}/>
+            <Descriptor welcome={<p className='welcome'>WELCOME TO TIMETABLE</p>} encourager={<p className='encourager'>Here is a very nice web service where you can browse <strong>easily</strong> the University of Yaounde I (UY1) timetable. We work hard for you to find what you want easily. We said alot, <span>have a cool browse</span>.</p>} action='Log In'/>
             
             <div className="recorder-c">                
                 <div className="form">

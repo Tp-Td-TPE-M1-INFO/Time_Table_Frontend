@@ -10,7 +10,7 @@ export default function Descriptor(props) {
                         <img src={alarm} alt='Alarm logo' width={'30px'} style={{cursor:'pointer'}}/>
                         <div className='more'>
                             <div style={{color: 'white'}}>About us</div>
-                            <div style={{backgroundColor:'white', color: 'var(--primary)'}}>Sign Up</div>
+                            <div style={{backgroundColor:'white', color: 'var(--primary)'}}>{props.action}</div>
                         </div>
                     </div>
                     {props.welcome}

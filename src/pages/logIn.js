@@ -99,7 +99,7 @@ export default function UserLogIn() {
 
     return (
         <div className='main-c'>
-            <Descriptor welcome={<p className='welcome'>WELCOME TO TIMETABLE</p>} encourager={<p className='encourager'>Here is a very nice web service where you can browse <strong>easily</strong> the University of Yaounde I (UY1) timetable. We work hard for you to find what you want easily. We said alot, <span>have a cool browse</span>.</p>}/>
+            <Descriptor welcome={<p className='welcome'>WELCOME BACK TO TIMETABLE</p>} encourager={<p className='encourager'>Here is a very nice web service where you can browse <strong>easily</strong> the University of Yaounde I (UY1) timetable. We work hard for you to find what you want easily. We said alot, <span>have a cool browse</span>.</p>} action='Sign Up'/>
             
             <div className="recorder-c">
                 <div className="form">
