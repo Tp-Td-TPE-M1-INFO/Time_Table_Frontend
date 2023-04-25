@@ -1,5 +1,5 @@
 import './style.css';
-import alarm from '../../assets/images/Jugalux_alarm.svg'
+import logo from '../../assets/images/logo.png'
 export default function Descriptor(props) {
 
     return (
@@ -7,7 +7,7 @@ export default function Descriptor(props) {
             <div className='normalizer'>
                 <div className='contain'>
                     <div className='top-tasks'>
-                        <img src={alarm} alt='Alarm logo' width={'30px'} style={{cursor:'pointer'}}/>
+                        <img src={logo} alt='Logo' width={'50px'} style={{cursor:'pointer', borderRadius: 80}}/>
                         <div className='more'>
                             <div style={{color: 'white'}}>About us</div>
                             <div style={{backgroundColor:'white', color: 'var(--primary)'}}>{props.action}</div>
