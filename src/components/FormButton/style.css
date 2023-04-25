@@ -1,0 +1,39 @@
+.primary{
+    border-radius: 2rem;
+    width: 18rem;
+    height: 2.5rem;
+    color: white;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    font-size: 23px;
+    font-weight: bold;
+    background-color:  rgba(0, 0, 156, 0.9);
+    border: 1px solid  rgba(0, 0, 156, 0.9);
+
+}
+.primary:hover{
+    background-color: var(--primary);
+
+}
+
+@media screen and (max-width: 349px) {
+    .primary {
+        width: 12rem;
+    }
+    
+}
+
+@media screen and (min-width: 350px) and (max-width: 430px) {
+    .primary {
+        width: 14rem;
+    }
+}
+@media screen and (min-width: 431px) and (max-width: 780px) {
+    .primary {
+        width: 16rem;
+    }
+}
+@media screen and (min-width: 781px) and (max-width: 990px) {
+    .primary {
+        width: 18rem;
+    }
+}

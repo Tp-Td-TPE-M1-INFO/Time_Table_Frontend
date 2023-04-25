@@ -1,12 +1,31 @@
-import logo from '../src/media/logo.png';
+// React imports
+import {BrowserRouter, Route, Routes}  from "react-router-dom"
+import UserSignUp from './pages/signUp';
+import UserLogIn from './pages/logIn';
+
+// React modules styles
+import 'react-toastify/dist/ReactToastify.css';
+
+// Page style
 import './App.css';
 
-function App() {
-  return (
+function App() {   
+    
+    return (
     <div className="App">
-        <img src={logo} className="App-logo" alt="logo" />
+        <BrowserRouter>
+            <Routes>
+                <Route index element={<UserLogIn/>} />
+                <Route path='/sign-up' element={<UserSignUp/>}/>
+                <Route path='/log-in' element={<UserLogIn/>}/>                   
+            </Routes>
+        </BrowserRouter>
     </div>
-  )
+    
+    )
+    
+    
+    
 }
 
 export default App;
