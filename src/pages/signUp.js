@@ -4,7 +4,7 @@ import {Form} from "react-bootstrap"
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Entry from "../components/Entry"
-import Descriptor from "../components/Descriptor"
+import Banner from "../components/Banner"
 import FormValidation from "../components/FormValidation"
 import  axios  from "axios";
 
@@ -140,13 +140,13 @@ export default function UserSignUp() {
     }
 
     return (
-        <div className='main-c'>
-            <Descriptor welcome={<p className='welcome'>WELCOME TO TIMETABLE</p>} encourager={<p className='encourager'>Here is a very nice web service where you can browse <strong>easily</strong> the University of Yaounde I (UY1) timetable. We work hard for you to find what you want easily. We said alot, <span>have a cool browse</span>.</p>} action='Log In'/>
+        <div className='main'>
+            <Banner welcome={<p className='welcome'>WELCOME TO TIMETABLE</p>} encourager={<p className='encourager'>Here is a very nice web service where you can browse <strong>easily</strong> the University of Yaounde I (UY1) timetable. We work hard for you to find what you want easily. We said alot, <span>have a cool browse</span>.</p>} action='Log In' path='/log-in'/>
             
-            <div className="recorder-c">                
+            <div className="recorder">                
                 <div className="form">
-                    <div className='heading'>
-                        {/* <img src={Logo} alt="Logo" style={{height:"4rem"}} /> */}
+                    <div className='heading' style={{marginTop:"15rem"}}>
+                        <p>USER SIGNUP</p>
                     </div>
                     <form className="client-register-form">
                         <Entry handler={handleFullName} type="text" identifier="full-name-text" label="Full name"/>

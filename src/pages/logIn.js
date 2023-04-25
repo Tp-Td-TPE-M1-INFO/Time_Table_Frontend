@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import  axios  from "axios";
 import Entry from "../components/Entry"
-import Descriptor from "../components/Descriptor"
+import Banner from "../components/Banner"
 import {Form} from "react-bootstrap"
 import FormValidation from "../components/FormValidation"
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -98,10 +98,10 @@ export default function UserLogIn() {
     }
 
     return (
-        <div className='main-c'>
-            <Descriptor welcome={<p className='welcome'>WELCOME BACK TO TIMETABLE</p>} encourager={<p className='encourager'>Here is a very nice web service where you can browse <strong>easily</strong> the University of Yaounde I (UY1) timetable. We work hard for you to find what you want easily. We said alot, <span>have a cool browse</span>.</p>} action='Sign Up'/>
+        <div className='main'>
+            <Banner welcome={<p className='welcome'>WELCOME BACK TO TIMETABLE</p>} encourager={<p className='encourager'>Here is a very nice web service where you can browse <strong>easily</strong> the University of Yaounde I (UY1) timetable. We work hard for you to find what you want easily. We said alot, <span>have a cool browse</span>.</p>} action='Sign Up' path='/sign-up'/>
             
-            <div className="recorder-c">
+            <div className="recorder">
                 <div className="form">
                     <div className='heading'>
                         <p>USER LOGIN</p>

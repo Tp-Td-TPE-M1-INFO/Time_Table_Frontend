@@ -52,6 +52,7 @@ div.entry-container {
     padding: 0 3px;
     font-size: 14px;
     color: var(--primary);
+    transition: var(--transition);
 }
 
 

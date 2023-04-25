@@ -1,4 +1,4 @@
-div.main-c{
+div.main{
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -9,11 +9,11 @@ div.main-c{
     scrollbar-width: none;  /* Firefox */
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
-div.main-c::-webkit-scrollbar {
+div.main::-webkit-scrollbar {
     display: none;
 }
 
-div.recorder-c{
+div.recorder{
     display:flex;
     justify-content: center;
     align-items: center;

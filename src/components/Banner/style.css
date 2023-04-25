@@ -68,7 +68,14 @@ div.normalizer p span{
     div.contain{
         padding: 10rem 0 5rem 0;
     }
-
+}
+@media screen and (min-height: 800px){    
+    div.normalizer p{
+        font-size: 1.5rem;
+    }
+    div.normalizer p.welcome{
+        font-size: 3rem;
+    }
 }
 @media screen and (min-width: 991px){
     div.contain{
