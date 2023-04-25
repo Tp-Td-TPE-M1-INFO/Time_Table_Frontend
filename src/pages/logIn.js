@@ -107,8 +107,8 @@ export default function UserLogIn() {
                         <p>USER LOGIN</p>
                     </div>
                     <form className="client-login-form">
-                        <Entry handler={handleUsername} type="text" identifier="username-text" label="Enter your username" icon={usernameIcon}/>
-                        <Entry handler={handlePassword} type="password" identifier="password-text" label="Enter your password" icon={passwordIcon} isPasswordEntry={
+                        <Entry handler={handleUsername} type="text" identifier="username-text" label="Enter your username" isImage={true} icon={usernameIcon}/>
+                        <Entry handler={handlePassword} type="password" identifier="password-text" label="Enter your password"  isImage={true} icon={passwordIcon} isPasswordEntry={
                         <div className='toggle-icon'>
                             <img src={togglePassword} alt="toggle icon" width={"30px"}/>
                         </div>

@@ -1,28 +1,40 @@
 
 import { useState } from 'react';
-import {Form} from "react-bootstrap"
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Entry from "../components/Entry"
 import Banner from "../components/Banner"
 import FormValidation from "../components/FormValidation"
 import  axios  from "axios";
+import {
+  Person2,
+  Tag,
+  Dialpad,
+  Email
+} from "@mui/icons-material";
 
 // React modules style
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-phone-number-input/style.css'
 
 // Page style
 import '../styles/signUp.css';
 
+// Useful icons
+import usernameIcon from "../assets/images/username.svg"
+import passwordIcon from "../assets/images/password.svg"
+import togglePassword from "../assets/images/toggle_password.svg"
+
 export default function UserSignUp() {
 
     // States for registration
-    const [fullName, setFullName] = useState('');
+    const [name, setName] = useState('');
+    const [registrationNumber, setRegistrationNumber] = useState('');
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [gender, setGender] = useState('');
+    const [phone, setPhone] = useState('');
     
     const navigate = useNavigate()
 
@@ -33,8 +45,12 @@ export default function UserSignUp() {
     const [isLoading, setIsLoading] = useState(false)
 
     // Handling changes
-    const handleFullName = (e) => {
-        setFullName(e.target.value);
+    const handleName = (e) => {
+        setName(e.target.value);
+        setSubmitted(false);
+    };
+    const handleRegistrationNumber = (e) => {
+        setName(e.target.value);
         setSubmitted(false);
     };
     const handleUsername = (e) => {
@@ -45,14 +61,19 @@ export default function UserSignUp() {
         setEmail(e.target.value);
         setSubmitted(false);
     };
-    function isValidEmail(email) {
-        return /\S+@\S+\.\S+/.test(email);
-    }
     const handlePassword = (e) => {
         setPassword(e.target.value);
         setSubmitted(false);
     };
+    const handlePhone = (e) => {
+        setPhone(e.target.value);
+        setSubmitted(false);
+    };
     
+    function isValidEmail(email) {
+        return /\S+@\S+\.\S+/.test(email);
+    }
+
     const generateError = (err) =>
     toast.error(err, {
         position: "top-right",
@@ -79,10 +100,10 @@ export default function UserSignUp() {
         e.preventDefault();
         setIsLoading(true)
 
-        if (fullName === '' || username === '' || email === '' || password === '' || gender === '') {
+        if (name === '' || username === '' || email === '' || password === '' || registrationNumber === '' || phone === '') {
             setError(true); 
 
-            if (fullName === ""){
+            if (name === ""){
                 setIsLoading(false)
                 return generateError("Please enter your full name.")
             } 
@@ -98,12 +119,21 @@ export default function UserSignUp() {
                 setIsLoading(false)
                 return generateError("Please enter your password.")
             } 
-            else if (gender === ""){
+            else if (phone === ""){
                 setIsLoading(false)
-                return generateError("Please select your gender.")
+                return generateError("Please enter your phone number.")
             }else{
 
             }
+        }else if (phone.length !== 13){
+            setIsLoading(false)
+            return generateError("Invalid phone format, you should enter 7 digits.")
+
+        }
+        else if (phone.charAt(4) !== '2' && phone.charAt(4) !== '6'){
+            setIsLoading(false)
+            return generateError("Invalid phone format, the first digit should be 2 or 6.")
+
         }
         else if (!isValidEmail(email)) {
             setError(true);
@@ -111,7 +141,7 @@ export default function UserSignUp() {
             return generateError('Email is invalid')
         } else {
             setError(false);
-            return signUp()
+            // return signUp()
         }
     };
 
@@ -122,11 +152,11 @@ export default function UserSignUp() {
     
     const signUp = () =>  {
         const values = { 
-            "fullname": fullName,
+            "name": name,
             "username":username,
             "email":email,
             "password":password,
-            "gender":gender
+            "rn":registrationNumber
         };
 
         axios.post('https://social-network-auth-service.onrender.com/api/register', values).then((response) => {
@@ -145,28 +175,22 @@ export default function UserSignUp() {
             
             <div className="recorder">                
                 <div className="form">
-                    <div className='heading' style={{marginTop:"15rem"}}>
+                    <div className='heading' style={{marginTop:"20rem"}}>
                         <p>USER SIGNUP</p>
                     </div>
                     <form className="client-register-form">
-                        <Entry handler={handleFullName} type="text" identifier="full-name-text" label="Full name"/>
-                        <Entry handler={handleUsername} type="text" identifier="username-text" label="Username"/>
-                        <Entry handler={handleEmail} type="text" identifier="email-text" label="Email"/>
-                        <Entry handler={handlePassword} type="password" identifier="password-text" label="Password"/>
-
-                        <Form.Group className="gender">
-                            <Form.Label className='name'>Gender</Form.Label>
-                            <div className='options'>
-                                <Form.Check type="radio" name="gender"  className="gender-value" label="Male" value="Male"  onClick={(e) => {
-                                setGender(e.target.value)
-                                }}/>
-                                <Form.Check type="radio"  name="gender" className="gender-value" label="Female"  value="Female"  onClick={(e) => {
-                                setGender(e.target.value)
-                                }}/>
+                        <Entry handler={handleName} type="text" identifier="full-name-text" label="Enter your name" isImage={false} muIcon={<Person2 sx={{color:"white",  fontSize:"30px"}}/>}/>
+                        <Entry handler={handleRegistrationNumber} type="text" identifier="full-name-text" label="Enter your registration number" isImage={false} muIcon={<Tag sx={{color:"white",  fontSize:"30px"}}/>}/>
+                        <Entry handler={setPhone} type="text" label="Enter your  phone number" isPhone={true}  isImage={false} muIcon={<Dialpad sx={{color:"white",  fontSize:"30px"}}/>}/>
+                        <Entry handler={handleEmail} type="text" identifier="email-text" label="Enter your  email"  isImage={false} muIcon={<Email sx={{color:"white",  fontSize:"30px"}}/>}/>
+                        <Entry handler={handleUsername}  isImage={true} type="text" identifier="username-text" label="Enter your username" icon={usernameIcon}/>
+                        <Entry handler={handlePassword} type="password" identifier="password-text" label="Enter your password"  isImage={true} icon={passwordIcon} isPasswordEntry={
+                            <div className='toggle-icon'>
+                                <img src={togglePassword} alt="toggle icon" width={"30px"}/>
                             </div>
-                        </Form.Group>
+                        }/>
                         
-                        <FormValidation isLoading={isLoading} submitHandler={handleSubmit} primaryLabel="Sign up" secondaryMessage="Already have an account ?" abortHandler={handleAbort} secondaryLabel="Log in"/>
+                        <FormValidation isLoading={isLoading} submitHandler={handleSubmit} primaryLabel="Sign up" secondaryEmail="Already have an account ?" abortHandler={handleAbort} secondaryLabel="Log in"/>
                         
                     </form>
 
