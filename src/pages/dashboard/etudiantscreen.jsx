@@ -1,12 +1,10 @@
 import React from "react";
-import Topbar from "./dashboard/topbar";
-import Sidebarr from "./dashboard/sidebar";
-import { Route, Routes } from "react-router-dom";
-import UserSignUp from "./signUp";
-import "../index.css";
-import Box from "@mui/material/Box";
+import Topbar from "./topbar";
+import Sidebarr from "./sidebar";
+import "../../index.css";
+import { Box } from "@mui/material";
 
-export default function Home() {
+const Etudiantscreen = () => {
   return (
     <div className="content">
       <Sidebarr />
@@ -14,9 +12,11 @@ export default function Home() {
         <Topbar />
         <main className="mainSection">
           {/* Here we will write this section's code */}
-          <p>Je suis jocelyn pyw</p>
+          <p>Je suis dans la section Etudiant</p>
         </main>
       </Box>
     </div>
   );
-}
+};
+
+export default Etudiantscreen;
