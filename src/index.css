@@ -30,7 +30,16 @@ code {
   padding: 15px;
   /* background-color: blueviolet; */
 }
-.active {
+/* .active {
   background-color: lime;
-  height: 100%;
+  height: 500px;
+} */
+.menuItem {
+  color: "grey";
+  margin-bottom: "5px";
+  background-color: "red";
+}
+.iconColor {
+  /* color: #00009c; */
+  color: rgba(0, 0, 156, 0.7);
 }

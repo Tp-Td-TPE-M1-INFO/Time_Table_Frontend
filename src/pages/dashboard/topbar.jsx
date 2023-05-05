@@ -15,8 +15,13 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import PowerSettingsNewOutlinedIcon from "@mui/icons-material/PowerSettingsNewOutlined";
+import colors from "../../utils/color";
 const Topbar = () => {
-  const { collapseSidebar } = useProSidebar();
+  // const { collapseSidebar } = useProSidebar();
+  const { collapseSidebar, toggleSidebar, collapsed, toggled, broken, rtl } =
+    useProSidebar();
 
   return (
     <Box
@@ -25,20 +30,23 @@ const Topbar = () => {
       height="60px"
       justifyContent="space-between"
       p={2}
-      backgroundColor="lime"
+      // backgroundColor="lime"
+      boxShadow="0px 0px 5px rgba(0,0,0,0.3)"
     >
       {/* SEARCH */}
       <Box display="flex">
         <Box>
           <MenuOutlinedIcon
             onClick={() => collapseSidebar()}
-            sx={{ cursor: "pointer" }}
+            sx={{ cursor: "pointer", color: colors.app.greyIcon }}
           />
         </Box>
-        <Box display="flex" backgroundColor="red" borderRadius="3px">
+        <Box display="flex" borderRadius="3px">
           <InputBase placeholder="Search..." sx={{ ml: 2, flex: 1 }} />
           <IconButton type="button" sx={{ p: 1 }}>
-            <SearchOutlinedIcon />
+            <SearchOutlinedIcon
+              sx={{ cursor: "pointer", color: colors.app.greyIcon }}
+            />
           </IconButton>
         </Box>
       </Box>
@@ -46,16 +54,25 @@ const Topbar = () => {
       {/* ICON  */}
       <Box display="flex">
         <IconButton>
-          <LightModeOutlinedIcon />
+          <EmailOutlinedIcon
+            sx={{ cursor: "pointer", color: colors.app.greyIcon }}
+          />
         </IconButton>
         <IconButton>
-          <NotificationsNoneOutlinedIcon />
+          <NotificationsNoneOutlinedIcon
+            sx={{ cursor: "pointer", color: colors.app.greyIcon }}
+          />
+        </IconButton>
+
+        <IconButton>
+          <PowerSettingsNewOutlinedIcon
+            sx={{ cursor: "pointer", color: colors.app.greyIcon }}
+          />
         </IconButton>
         <IconButton>
-          <SettingsOutlinedIcon />
-        </IconButton>
-        <IconButton>
-          <Person2OutlinedIcon />
+          <SettingsOutlinedIcon
+            sx={{ cursor: "pointer", color: colors.app.greyIcon }}
+          />
         </IconButton>
       </Box>
     </Box>

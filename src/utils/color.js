@@ -1,12 +1,14 @@
-export const colors = {
+const colors = {
   app: {
     // primary: '#01B763',
-    primary: "#0A8791",
-    secondary: "#F3F5F7",
+    greyIcon: "#9c9fa6",
+    primary: "#00009c",
+    secondary: "#00009cb3",
     tertiary: "#DCDEFE",
     backgroundGrey: "#D8D8D8",
     backgroundGrey_1: "#B8C0CF",
     grey: "#f8f8f8",
+
     defaultGrey: "#FAFAFA",
     pinkLight: "#FF8EA3",
     greenLight: "#78D5C0",
@@ -84,3 +86,5 @@ export const colors = {
     numberCount: "#B8B8D2",
   },
 };
+
+export default colors;
