@@ -30,3 +30,7 @@ code {
   padding: 15px;
   /* background-color: blueviolet; */
 }
+.active {
+  background-color: lime;
+  height: 100%;
+}
