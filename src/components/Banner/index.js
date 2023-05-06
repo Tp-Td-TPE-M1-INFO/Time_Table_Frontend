@@ -7,8 +7,8 @@ export default function Banner(props) {
 
     const [color, setColor] = useState({});
     const listenScrollEvent = e => {
-        if (window.scrollY > 250) {
-            setColor({backgroundColor: 'var(--primary-diluted)',zIndex:300})
+        if (window.scrollY > 50) {
+            setColor({backgroundColor: 'var(--primary)',zIndex:300})
         } else {
             setColor({backgroundColor: 'var(--primary-empty)'})
         }
