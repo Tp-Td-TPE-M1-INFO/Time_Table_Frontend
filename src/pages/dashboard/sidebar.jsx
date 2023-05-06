@@ -51,8 +51,8 @@ const Sidebarr = () => {
               }}
             />
             {!collapsed && (
-              <Typography variant="h5" color="green" fontWeight="bold">
-                TP BD
+              <Typography variant="h5" color="#00009cb3" fontWeight="bold">
+                TIME TABLE
               </Typography>
             )}
           </Box>
@@ -61,13 +61,15 @@ const Sidebarr = () => {
 
         <Box mb="25px">
           {!collapsed && (
-            <>
-              <Box
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                flexDirection="column"
-              >
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              flexDirection="row"
+              marginTop="5px"
+              marginBottom="20px"
+            >
+              <Box>
                 <img
                   alt="profile-user"
                   width="50px"
@@ -81,22 +83,23 @@ const Sidebarr = () => {
                 />
               </Box>
 
-              <Box textAlign="center">
-                <Typography
-                  variant="h10"
-                  color="green"
-                  fontWeight="bold"
-                  sx={{ m: "10px 0 0 0" }}
-                >
-                  Ed Roh
+              <Box
+                textAlign="center"
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                marginLeft="5px"
+              >
+                <Typography variant="h10" fontWeight="bold" color="#3E4B5B">
+                  Jocelyn Pyw
                 </Typography>
-                <Typography variant="h9" color="green">
-                  VP Fancy Admin
+                <Typography variant="h9" color="#d8d8d8" fontSize="12px">
+                  Project Manager
                 </Typography>
               </Box>
-            </>
+            </Box>
           )}
-
           <Menu
             menuItemStyles={{
               button: ({ level, active, disabled }) => {
