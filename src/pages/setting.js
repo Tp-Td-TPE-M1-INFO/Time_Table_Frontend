@@ -2,23 +2,14 @@ import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import Entry from "../components/Entry"
-import FormValidation from "../components/FormValidation"
 import {
-    Person2Outlined,
-    Person2,
-    Tag,
-    Dialpad,
-    Email,
-    LockOpen,
-    EditOutlined,
-    DeleteOutlined 
+    Edit,
   } from "@mui/icons-material";
   import {
     Box,
     IconButton
   } from "@mui/material";
-import Dropzone from "react-dropzone";
+import profile from "../assets/images/logo.png"
 
 import "../styles/setting.css"
 // Useful icons
@@ -151,73 +142,27 @@ function Setting(props) {
     };
     return (
         <div className='setting-container'>
-            <div className='setting-normalizer'>
-                <div className='setting-content'>
-                    
-                    <form className="client-register-form">
-                        
-                        <Dropzone
-                            sx={{backgroundColor:"white"}}
-                            acceptedFiles=".jpg,.jpeg,.png"
-                            multiple={false}
-                            onDrop={(acceptedFiles) => setImage(acceptedFiles[0])}
-                        >
-                            {({ getRootProps, getInputProps }) => (
-                            <div style={{backgroundColor:"white",border:"1px solid white",borderRadius:"60px",padding:"0.5rem",display:"flex",justifyContent:"center",alignItems:"center",marginBottom:"1rem"}}>
-                                <Box
-                                {...getRootProps()}
-                                border={`2px dashed var(--primary)`}
-                                borderRadius="60px"
-                                p="1rem"
-                                width="100%"
-                                display="flex"
-                                flexDirection="column"
-                                justifyContent="center"
-                                alignItems="center"
-                                sx={{ "&:hover": { cursor: "pointer" } }}
-                                >
-                                <input {...getInputProps()} />
-                                {!image ? (
-                                    <>
-                                        <Person2 sx={{color:"var(--primary)",  fontSize:"30px"}}/>
-                                        <p style={{color:"var(--primary)"}}>Add Profile Picture Here</p>
-                                    </>
-                                ) : (
-                                    <div>
-                                    <p>{image.name}</p>
-                                    <EditOutlined sx={{color:"green"}}/>
-                                    </div>
-                                )}
-                                </Box>
-                                {image && (
-                                <IconButton
-                                    onClick={() => setImage(null)}
-                                    sx={{ width: "15%" }}
-                                >
-                                    <DeleteOutlined  sx={{color:"red"}}/>
-                                </IconButton>
-                                )}
-                            </div>
-                            )}
-                        </Dropzone>
-
-                        <Entry stylizingI="entry-setting" stylizingEI="icon-setting" stylizingEC="container-setting" stylizingL="label-setting" handler={handleName} type="text" identifier="full-name-text" label="Name" isImage={false} muIcon={<Person2 sx={{color:"var(--primary)",  fontSize:"30px"}}/>}/>
-                        <Entry stylizingI="entry-setting" stylizingEI="icon-setting" stylizingEC="container-setting" stylizingL="label-setting"  handler={handleRegistrationNumber} type="text" identifier="full-name-text" label="Registration number" isImage={false} muIcon={<Tag sx={{color:"var(--primary)",  fontSize:"30px"}}/>}/>
-                        <Entry stylizingI="entry-setting" stylizingEI="icon-setting" stylizingEC="container-setting" stylizingL="label-setting"  handler={setPhone} type="text" label="Phone number" isPhone={true}  isImage={false} muIcon={<Dialpad sx={{color:"var(--primary)",  fontSize:"30px"}}/>}/>
-                        <Entry stylizingI="entry-setting" stylizingEI="icon-setting" stylizingEC="container-setting" stylizingL="label-setting"  handler={handleEmail} type="text" identifier="email-text" label="Email"  isImage={false} muIcon={<Email sx={{color:"var(--primary)",  fontSize:"30px"}}/>}/>
-                        <Entry stylizingI="entry-setting" stylizingEI="icon-setting" stylizingEC="container-setting" stylizingL="label-setting"  handler={handleUsername}  isImage={false} type="text" identifier="username-text" label="Username" muIcon={<Person2Outlined sx={{color:"var(--primary)",  fontSize:"30px"}}/>}/>
-                        <Entry stylizingI="entry-setting" stylizingEI="icon-setting" stylizingEC="container-setting" stylizingL="label-setting"  handler={handlePassword} type="password" identifier="password-text" label="Password"  isImage={false} muIcon={<LockOpen sx={{color:"var(--primary)",  fontSize:"30px"}}/>} isPasswordEntry={
-                            <div className='toggle-icon'>
-                                <img src={togglePassword} alt="toggle icon" width={"30px"}/>
-                            </div>
-                        }/>
-                        
-                        <FormValidation isLoading={isLoading} submitHandler={handleSubmit} primaryLabel="Save" bg="rgba(0, 0, 156, 0.8)" bgb="white"/>
-                        
-                    </form>
+            <div className='setting-content'>
+                <div className='setting-banner'>
+                    <div className='setting-profile'>
+                        <img src={profile} alt='profile pic' className='profile-picture'/>
+                    </div>
+                </div>
+                <div className='setting-info'>
+                    <div className='edit'>
+                        <Edit sx={{color:"gray", fontSize:"2.5rem", border:"0px solid white", borderRadius:"50%"}}/>
+                    </div>
+                    <div className='info-1'>
+                        <h1>NDANG ESSI Pierre Junior</h1>
+                        <h3>#18T2419</h3>
+                    </div>
+                    <div className='info-2'>
+                        <h3>nessipjunior@gmail.com</h3>
+                        <h3>@EssiJunior</h3>
+                        <h3>+237 6 90 74 37 37</h3>
+                    </div>
                 </div>
             </div>
-            
             <ToastContainer/>
         </div>
     )
