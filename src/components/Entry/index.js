@@ -2,7 +2,7 @@
 import PhoneInput from 'react-phone-number-input/input'
 import './style.css';
 
-export default function Entry(props) {
+export default function DarkEntry(props) {
 
     return (
         <div className={`entry-container ${props.stylizingEC}`}>

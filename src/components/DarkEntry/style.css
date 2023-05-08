@@ -1,0 +1,108 @@
+.setting-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100vh;
+    background: url('../assets/images/banner.svg') center/cover no-repeat;
+    width: 100vw;
+}
+.setting-normalizer{
+   background: rgba(0, 0, 156, 0.9);
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.setting-content{
+    width: 50vw;
+    height: 100vh;
+    background: rgba(0, 0, 156, 0.9);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container-setting {
+    position: relative;
+    margin: 0.5rem 1rem;
+    border-radius: 2rem;
+}
+
+
+.entry-setting {
+    outline: none;
+    border: 2px solid white;
+    background-color: var(--primary);
+    padding: 10px 13px 10px 60px;
+    color: white;
+}
+
+.entry-setting:valid+.label-setting {
+    top: -8px;
+    padding: 0 3px;
+    font-size: 14px;
+    color: white;
+}
+
+.entry-setting:focus {
+    border: 2px solid white;
+}
+
+.label-setting {
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 60px;
+    background: var(--primary);
+}
+
+.icon-setting{
+    background-color: white;
+    color: var(--primary);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 100%;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.entry-setting:focus+.label-setting {
+    top: -8px;
+    padding: 0 3px;
+    font-size: 14px;
+    color: white;
+    transition: var(--transition);
+}
+
+
+@media screen and (max-width: 400px){
+    .setting-content{
+        width: 100vw;
+        height: 100vh;
+    }
+}
+@media screen and (min-width: 401px)  and (max-width: 750px){
+    .setting-content{
+        width: 90vw;
+        height: 85vh;
+    }
+}
+@media screen and (min-width: 751px)  and (max-width: 900px){
+    .setting-content{
+        width: 70vw;
+        height: 85vh;
+    }
+}
+@media screen and (min-width: 901px)  and (max-width: 1200px){
+    .setting-content{
+        width: 60vw;
+        height: 85vh;
+    }
+}
