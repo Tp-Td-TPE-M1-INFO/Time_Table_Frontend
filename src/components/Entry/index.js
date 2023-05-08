@@ -5,8 +5,8 @@ import './style.css';
 export default function Entry(props) {
 
     return (
-        <div className="entry-container">
-            <div className='entry-icon'>
+        <div className={`entry-container ${props.stylizingEC}`}>
+            <div className={`entry-icon ${props.stylizingEI}`}>
                 {props.isImage ? 
                     <img src={props.icon} alt={props.label} width={"30px"}/>:
                     <>{props.muIcon}</>
@@ -18,11 +18,11 @@ export default function Entry(props) {
                     placeholder={props.label}
                     country="CM"
                     onChange={props.handler}
-                    className="input-area" />
+                    className={`input-area ${props.stylizingI}`} />
                 :
                 <>
-                    <input onChange={props.handler} type={props.type} className="input-area" id={props.identifier} required/>
-                    <label for={props.identifier} className="label">{props.label}</label>
+                    <input onChange={props.handler} type={props.type} className={`input-area ${props.stylizingI}`} id={props.identifier} required/>
+                    <label for={props.identifier} className={`label ${props.stylizingL}`}>{props.label}</label>
                     {props.isPasswordEntry}
                 </>
             }

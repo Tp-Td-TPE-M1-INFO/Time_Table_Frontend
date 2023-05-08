@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import Entry from "../components/Entry"
@@ -26,8 +26,11 @@ import usernameIcon from "../assets/images/username.svg"
 import passwordIcon from "../assets/images/password.svg"
 import togglePassword from "../assets/images/toggle_password.svg"
 
-export default function UserSignUp() {
 
+
+
+export default function UserSignUp() {
+    
     // States for registration
     const [name, setName] = useState('');
     const [registrationNumber, setRegistrationNumber] = useState('');
@@ -35,15 +38,16 @@ export default function UserSignUp() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [phone, setPhone] = useState('');
+
     
     const navigate = useNavigate()
-
-
+    
+    
     // States for checking the errors
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false)
-
+    
     // Handling changes
     const handleName = (e) => {
         setName(e.target.value);
@@ -73,7 +77,7 @@ export default function UserSignUp() {
     function isValidEmail(email) {
         return /\S+@\S+\.\S+/.test(email);
     }
-
+    
     const generateError = (err) =>
     toast.error(err, {
         position: "top-right",
@@ -85,24 +89,24 @@ export default function UserSignUp() {
         theme: "colored",
     })
     const generateSuccess = (msg) =>
-        toast.success(msg, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            theme: "colored",
-        })
+    toast.success(msg, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "colored",
+    })
 
     // Handling the form submission
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsLoading(true)
-
+        
         if (name === '' || username === '' || email === '' || password === '' || registrationNumber === '' || phone === '') {
             setError(true); 
-
+            
             if (name === ""){
                 setIsLoading(false)
                 return generateError("Please enter your full name.")

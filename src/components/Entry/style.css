@@ -32,6 +32,7 @@ div.entry-container {
     top: 10px;
     left: 60px;
     background: #ffffff;
+    transition: var(--transition);
 }
 
 .entry-icon{
@@ -57,33 +58,33 @@ div.entry-container {
 
 
 @media screen and (max-width: 349px) {
-    .input-area {
+    .input-area  {
         width: 100%;
     }
     
 }
 @media screen and (min-width: 350px) and (max-width: 430px) {
-    .input-area {
+    .input-area  {
         width: 22rem;
     }
 }
 @media screen and (min-width: 431px) and (max-width: 480px) {
-    .input-area {
+    .input-area  {
         width: 24rem;
     }
 }
 @media screen and (min-width: 481px) and (max-width: 580px) {
-    .input-area {
+    .input-area  {
         width: 26rem;
     }
 }
 @media screen and (min-width: 581px) and (max-width: 680px) {
-    .input-area {
+    .input-area  {
         width: 28rem;
     }
 }
 @media screen and (min-width: 681px) and (max-width: 990px) {
-    .input-area {
+    .input-area  {
         width: 30rem;
     }
 }
