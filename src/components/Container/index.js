@@ -1,12 +1,5 @@
-// # +====================================================================================+ #
-// # |================================= Powerk-soft ======================================| #
-// # |====================== bus-tickets app - All rights reserved =======================| #
-// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
-// # +====================================================================================+ #
-
 import React, { Component } from 'react';
 import { Modal } from '../Modal';
-import TriggerButton from '../TriggerButton';
 
 export class ContainerC extends Component {
   state = { isShown: false };
@@ -18,7 +11,7 @@ export class ContainerC extends Component {
   };
   closeModal = () => {
     this.setState({ isShown: false });
-    this.TriggerButton.focus();
+    this.div.focus();
     this.toggleScrollLock();
   };
   onKeyDown = (event) => {
@@ -38,12 +31,11 @@ export class ContainerC extends Component {
   render() {
     return (
       <React.Fragment>
-        <TriggerButton
-          showModal={this.showModal}
-          buttonRef={(n) => (this.TriggerButton = n)}
-          triggerText={this.props.triggerText}
-          styleT={this.props.styleC}
-        />
+        <div
+          ref={(n) => (this.div = n)}
+          onClick={this.showModal}>
+            {this.props.component}
+        </div>
         {this.state.isShown ? (
           <Modal
             modalRef={(n) => (this.modal = n)}
@@ -52,6 +44,7 @@ export class ContainerC extends Component {
             onKeyDown={this.onKeyDown}
             onClickOutside={this.onClickOutside}
             form={this.props.formToDisplay}
+            heading={this.props.heading}
           />
         ) : null}
       </React.Fragment>

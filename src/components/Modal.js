@@ -1,9 +1,3 @@
-// # +====================================================================================+ #
-// # |================================= Powerk-soft ======================================| #
-// # |====================== bus-tickets app - All rights reserved =======================| #
-// # |======================= Programmer: NDANG ESSI Pierre Junior =======================| #
-// # +====================================================================================+ #
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import FocusTrap from 'focus-trap-react';
@@ -13,7 +7,8 @@ export const Modal = ({
   modalRef,
   buttonRef,
   closeModal,
-  form
+  form,
+  heading
 }) => {
   return ReactDOM.createPortal(
     <FocusTrap>
@@ -27,6 +22,7 @@ export const Modal = ({
         onKeyDown={onKeyDown}
       >
         <div className="modal-area" ref={modalRef}>
+            <h3 className='modal-title'>{heading}</h3>
           <button
             ref={buttonRef}
             aria-label="Close Modal"
