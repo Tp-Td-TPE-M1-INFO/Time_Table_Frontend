@@ -14,9 +14,9 @@
 
 }
 
-.setting-form  .validation{
-    margin: 0;
-}
 .setting-form  .validation .progress{
     background-color: var(--setting-background);
+}
+.setting-form  .validation{
+    margin: 0;
 }
