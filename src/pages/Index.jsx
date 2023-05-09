@@ -19,10 +19,9 @@ const localizer = momentLocalizer(moment)
 const styles = (theme) => ({
     root: {
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
         height: "100vh",
         flexDirection: "column",
+        marginTop: 50
     },
     button: {
         margin: theme.spacing(1),
@@ -86,11 +85,11 @@ const Index = ({ classes }) => {
     }
 
     return (
-        <div style={{ backgroundImage: `url(${cover})`, backgroundSize: 'cover' }}>
+        // <div style={{ backgroundImage: `url(${cover})`, backgroundSize: 'cover' }}>
+        <div>
+            {/* <Navbar />
 
-            <Navbar />
-
-            <Banner />
+            <Banner /> */}
 
             <div className={classes.root}>
                 <Calendar
@@ -99,7 +98,7 @@ const Index = ({ classes }) => {
                     startAccessor="start"
                     endAccessor="end"
                     view={view}
-                    style={{ height: 400, width: "80%", background: '#fff', padding: 20, borderRadius: 10 }}
+                    style={{ height: 400, width: "100%", background: '#fff', borderRadius: 10 }}
                     //onDoubleClickEvent={handleEventClick}
                     selectable
                     onSelectSlot={handleSlotSelect}
