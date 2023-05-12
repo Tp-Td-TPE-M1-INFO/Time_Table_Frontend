@@ -1,7 +1,7 @@
 // React imports
-import {BrowserRouter, Route, Routes}  from "react-router-dom"
-import UserSignUp from './pages/signUp';
-import UserLogIn from './pages/logIn';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import UserSignUp from "./pages/signUp";
+import UserLogIn from "./pages/logIn";
 import Index from "./pages/Index";
 import Setting from "./pages/setting";
 
@@ -15,8 +15,8 @@ import NotFound from "./pages/notFound";
 import AdminScreen from "./pages/dashboard/adminScreen";
 import Etudiantscreen from "./pages/dashboard/etudiantscreen";
 import TimetableScreen from "./pages/dashboard/TimetableScreen";
+import SalleScreen from "./pages/dashboard/salleScreen";
 
-    
 function App() {
   return (
     <div className="App">
@@ -27,7 +27,8 @@ function App() {
         <Route path="/etudiant" element={<Etudiantscreen />} />
         <Route path="/timetable" element={<TimetableScreen />} />
         <Route path="/log-in" element={<UserLogIn />} />
-        <Route path='/setting' element={<Setting/>}/>
+        <Route path="/setting" element={<Setting />} />
+        <Route path="/salles" element={<SalleScreen />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

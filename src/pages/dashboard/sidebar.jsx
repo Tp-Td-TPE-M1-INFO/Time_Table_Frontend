@@ -175,13 +175,14 @@ const Sidebarr = () => {
                 <Typography color="#3E4B5B">Jocelyn Pyw</Typography>
               </MenuItem>
             </NavLink>
-            <NavLink to="/etudiant2">
+            <NavLink to="/salles">
               <MenuItem
                 icon={
                   <OtherHousesOutlinedIcon
                     style={{ color: colors.app.secondary }}
                   />
                 }
+                active={currentUrl === "/salles" ? true : false}
               >
                 <Typography color="#3E4B5B">Salles</Typography>
               </MenuItem>
