@@ -164,17 +164,7 @@ const Sidebarr = () => {
                 <Typography color="#3E4B5B">TimeTable</Typography>
               </MenuItem>
             </NavLink>
-            <NavLink to="/etudiant2">
-              <MenuItem
-                icon={
-                  <Person2OutlinedIcon
-                    style={{ color: colors.app.secondary }}
-                  />
-                }
-              >
-                <Typography color="#3E4B5B">Jocelyn Pyw</Typography>
-              </MenuItem>
-            </NavLink>
+
             <NavLink to="/salles">
               <MenuItem
                 icon={
@@ -218,6 +208,17 @@ const Sidebarr = () => {
                 }
               >
                 <Typography color="#3E4B5B">UE</Typography>
+              </MenuItem>
+            </NavLink>
+            <NavLink to="/etudiant2">
+              <MenuItem
+                icon={
+                  <Person2OutlinedIcon
+                    style={{ color: colors.app.secondary }}
+                  />
+                }
+              >
+                <Typography color="#3E4B5B">Jocelyn Pyw</Typography>
               </MenuItem>
             </NavLink>
             <NavLink to="/etudiant2">

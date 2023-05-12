@@ -1,0 +1,20 @@
+.salleName {
+  font-weight: 500;
+  font-size: 35px;
+  color: white;
+}
+.deleteIconBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border: 3px solid red;
+  border-radius: 50%;
+  background-color: transparent;
+}
+.salleNombreDePlace {
+  font-weight: 300;
+  font-size: 20px;
+  color: white;
+}
