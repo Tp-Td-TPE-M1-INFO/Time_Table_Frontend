@@ -32,7 +32,7 @@ const BoxCard = ({ title, subTitle }) => {
         </div>
         <div className="deleteIconBox">
           <IconButton sx={{ color: "red" }}>
-            <DeleteRoundedIcon />
+            <DeleteRoundedIcon size={12} />
           </IconButton>
         </div>
       </Box>
@@ -44,16 +44,16 @@ const BoxCard = ({ title, subTitle }) => {
           alignItems: "center",
           position: "absolute",
           bottom: 0,
-          width: "90%",
+          width: "95%",
         }}
       >
         <div>
           <p className="salleNombreDePlace">{subTitle} Places</p>
         </div>
         <div>
-          {/* <IconButton> */}
-          <DriveFileRenameOutlineRoundedIcon sx={{ color: "#fff" }} />
-          {/* </IconButton> */}
+          <IconButton>
+            <DriveFileRenameOutlineRoundedIcon sx={{ color: "#fff" }} />
+          </IconButton>
         </div>
       </Box>
     </Box>
