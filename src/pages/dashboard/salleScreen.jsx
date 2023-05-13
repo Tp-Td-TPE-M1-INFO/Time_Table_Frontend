@@ -10,6 +10,12 @@ import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
 
 const SalleScreen = () => {
+  const EditItem = () => {
+    console.log("Je suis la fonction Edititem");
+  };
+  const DeleteItem = () => {
+    console.log("Je suis la fonction DeleteItem");
+  };
   return (
     <div className="content">
       <Sidebarr />
@@ -54,16 +60,36 @@ const SalleScreen = () => {
               </Box>
             </Grid>
             <Grid item md={3} xs={12}>
-              <BoxCard title="S006" subTitle="40" />
+              <BoxCard
+                title="S006"
+                subTitle="40"
+                HandleDeleteItem={DeleteItem}
+                HandleItemItem={EditItem}
+              />
             </Grid>
             <Grid item md={3} xs={12}>
-              <BoxCard title="S006" subTitle="40" />
+              <BoxCard
+                title="S006"
+                subTitle="40"
+                HandleDeleteItem={DeleteItem}
+                HandleItemItem={EditItem}
+              />
             </Grid>
             <Grid item md={3} xs={12}>
-              <BoxCard title="S006" subTitle="40" />
+              <BoxCard
+                title="S006"
+                subTitle="40"
+                HandleDeleteItem={DeleteItem}
+                HandleItemItem={EditItem}
+              />
             </Grid>
             <Grid item md={3} xs={12}>
-              <BoxCard title="S006" subTitle="40" />
+              <BoxCard
+                title="S006"
+                subTitle="40"
+                HandleDeleteItem={DeleteItem}
+                HandleItemItem={EditItem}
+              />
             </Grid>
           </Grid>
           {/* <p>Je suis dans la composante salle</p> */}

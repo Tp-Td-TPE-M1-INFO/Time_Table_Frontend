@@ -5,7 +5,7 @@ import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import IconButton from "@mui/material/IconButton";
 import DriveFileRenameOutlineRoundedIcon from "@mui/icons-material/DriveFileRenameOutlineRounded";
 
-const BoxCard = ({ title, subTitle }) => {
+const BoxCard = ({ title, subTitle, HandleDeleteItem, HandleItemItem }) => {
   return (
     <Box
       sx={{
@@ -30,7 +30,7 @@ const BoxCard = ({ title, subTitle }) => {
         <div>
           <p className="salleName">{title}</p>
         </div>
-        <div className="deleteIconBox">
+        <div className="deleteIconBox" onClick={HandleDeleteItem}>
           <IconButton sx={{ color: "red" }}>
             <DeleteRoundedIcon size={12} />
           </IconButton>
@@ -51,7 +51,7 @@ const BoxCard = ({ title, subTitle }) => {
           <p className="salleNombreDePlace">{subTitle} Places</p>
         </div>
         <div>
-          <IconButton>
+          <IconButton onClick={HandleItemItem}>
             <DriveFileRenameOutlineRoundedIcon sx={{ color: "#fff" }} />
           </IconButton>
         </div>
