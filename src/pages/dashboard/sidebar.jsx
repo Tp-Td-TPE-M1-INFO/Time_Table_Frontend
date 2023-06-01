@@ -124,7 +124,7 @@ const Sidebarr = () => {
                   />
                 }
               >
-                <Typography color="#3E4B5B">Home</Typography>
+                <Typography color={currentUrl === "/" ? "#fff" : "#3E4B5B"}>Home</Typography>
               </MenuItem>
             </NavLink>
 
@@ -135,7 +135,7 @@ const Sidebarr = () => {
                 }
                 active={currentUrl === "/etudiant" ? true : false}
               >
-                <Typography color="#3E4B5B">Student</Typography>
+                <Typography color={currentUrl === "/etudiant" ? "#fff" : "#3E4B5B"}>Student</Typography>
               </MenuItem>
             </NavLink>
 
@@ -148,7 +148,7 @@ const Sidebarr = () => {
                 }
                 active={currentUrl === "/admin" ? true : false}
               >
-                <Typography color="#3E4B5B">Administration</Typography>
+                <Typography color={currentUrl === "/admin" ? "#fff" : "#3E4B5B"}>Administration</Typography>
               </MenuItem>
             </NavLink>
 
@@ -161,7 +161,7 @@ const Sidebarr = () => {
                 }
                 active={currentUrl === "/timetable" ? true : false}
               >
-                <Typography color="#3E4B5B">TimeTable</Typography>
+                <Typography color={currentUrl === "/timetable" ? "#fff" : "#3E4B5B"}>TimeTable</Typography>
               </MenuItem>
             </NavLink>
 
@@ -174,7 +174,7 @@ const Sidebarr = () => {
                 }
                 active={currentUrl === "/salles" ? true : false}
               >
-                <Typography color="#3E4B5B">Salles</Typography>
+                <Typography color={currentUrl === "/salles" ? "#fff" : "#3E4B5B"}>Salles</Typography>
               </MenuItem>
             </NavLink>
             <NavLink to="/etudiant2">
