@@ -128,14 +128,14 @@ const Sidebarr = () => {
               </MenuItem>
             </NavLink>
 
-            <NavLink to="/etudiant">
+            <NavLink to="/student">
               <MenuItem
                 icon={
                   <SchoolOutlinedIcon style={{ color: colors.app.secondary }} />
                 }
-                active={currentUrl === "/etudiant" ? true : false}
+                active={currentUrl === "/student" ? true : false}
               >
-                <Typography color={currentUrl === "/etudiant" ? "#fff" : "#3E4B5B"}>Student</Typography>
+                <Typography color={currentUrl === "/student" ? "#fff" : "#3E4B5B"}>Etudiants</Typography>
               </MenuItem>
             </NavLink>
 
@@ -177,15 +177,40 @@ const Sidebarr = () => {
                 <Typography color={currentUrl === "/salles" ? "#fff" : "#3E4B5B"}>Salles</Typography>
               </MenuItem>
             </NavLink>
-            <NavLink to="/etudiant2">
+            <NavLink to="/classes">
               <MenuItem
                 icon={
                   <EditCalendarOutlinedIcon
                     style={{ color: colors.app.secondary }}
                   />
                 }
+                active={currentUrl === "/classes" ? true : false}
               >
-                <Typography color="#3E4B5B">Classes</Typography>
+                <Typography color={currentUrl === "/classes" ? "#fff" : "#3E4B5B"}>Classes</Typography>
+              </MenuItem>
+            </NavLink>
+            <NavLink to="/teachers">
+              <MenuItem
+                icon={
+                  <Person2OutlinedIcon
+                    style={{ color: colors.app.secondary }}
+                  />
+                }
+                active={currentUrl === "/teachers" ? true : false}
+              >
+                <Typography color={currentUrl === "/teachers" ? "#fff" : "#3E4B5B"}>Teachers</Typography>
+              </MenuItem>
+            </NavLink>
+            <NavLink to="/ues">
+              <MenuItem
+                icon={
+                  <Person2OutlinedIcon
+                    style={{ color: colors.app.secondary }}
+                  />
+                }
+                active={currentUrl === "/ues" ? true : false}
+              >
+                <Typography color={currentUrl === "/ues" ? "#fff" : "#3E4B5B"}>UE</Typography>
               </MenuItem>
             </NavLink>
             <NavLink to="/etudiant2">
@@ -195,28 +220,7 @@ const Sidebarr = () => {
                     style={{ color: colors.app.secondary }}
                   />
                 }
-              >
-                <Typography color="#3E4B5B">Teachers</Typography>
-              </MenuItem>
-            </NavLink>
-            <NavLink to="/etudiant2">
-              <MenuItem
-                icon={
-                  <Person2OutlinedIcon
-                    style={{ color: colors.app.secondary }}
-                  />
-                }
-              >
-                <Typography color="#3E4B5B">UE</Typography>
-              </MenuItem>
-            </NavLink>
-            <NavLink to="/etudiant2">
-              <MenuItem
-                icon={
-                  <Person2OutlinedIcon
-                    style={{ color: colors.app.secondary }}
-                  />
-                }
+                active={currentUrl === "/etudiant2" ? true : false}
               >
                 <Typography color="#3E4B5B">Jocelyn Pyw</Typography>
               </MenuItem>
