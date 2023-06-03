@@ -6,6 +6,8 @@ import { Box } from "@mui/material"
 import Index from "../Index"
 
 const TimetableScreen = () => {
+
+    
     return (
         <div className="content">
             <Sidebarr />

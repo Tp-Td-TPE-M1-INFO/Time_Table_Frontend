@@ -14,7 +14,7 @@ export default function Home() {
         <Topbar />
         <main className="mainSection">
           {/* Here we will write this section's code */}
-          <p>Je suis jocelyn pyw</p>
+          <p>Je suis jocelyn Naza pyw</p>
         </main>
       </Box>
     </div>

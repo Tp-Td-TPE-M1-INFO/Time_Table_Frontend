@@ -1,0 +1,42 @@
+.salleName {
+  font-weight: 500;
+  font-size: 35px;
+  color: white;
+}
+.deleteIconBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border: 3px solid red;
+  border-radius: 50%;
+  background-color: transparent;
+}
+.salleNombreDePlace {
+  font-weight: 300;
+  font-size: 20px;
+  color: white;
+}
+.homeIconBox {
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00009c;
+  border-radius: 50%;
+}
+.addIconBox {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00009c;
+}
+.TitlePage {
+  font-size: 20px;
+  color: "#000";
+  font-weight: bold;
+}
