@@ -45,7 +45,7 @@ const BoxCard = ({ title, subTitle }) => {
 			}}
 		>
 			<div>
-				<p className="">{subTitle} Places</p>
+				<p className="">{subTitle} { subTitle != '' ? 'Places': null}</p>
 			</div>
 			<div>
 				<DriveFileRenameOutlineRoundedIcon sx={{ color: "#fff" }} />

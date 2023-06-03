@@ -10,7 +10,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
 
-const UeScreen = () => {
+const SectorScreen = () => {
 
     const [data, setData] = useState([])
 
@@ -21,7 +21,7 @@ const UeScreen = () => {
     const getData = async() => {
         
         try{
-            const response = await axios.get('https://timetable-4qip.onrender.com/api/ue')
+            const response = await axios.get('https://timetable-4qip.onrender.com/api/sector')
             setData(response.data)
             
         }catch(e){
@@ -48,12 +48,12 @@ const UeScreen = () => {
                             }}
                         >
                             <Box
-                            sx={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                                alignItems: "center",
-                                alignContent: "center",
-                            }}
+                                sx={{
+                                    display: "flex",
+                                    justifyContent: "space-between",
+                                    alignItems: "center",
+                                    alignContent: "center",
+                                }}
                             >
                             <IconButton>
                                 <div className="homeIconBox">
@@ -62,7 +62,7 @@ const UeScreen = () => {
                             </IconButton>
 
                             <div>
-                                <h1 className="TitlePage">Unités d'enseignement</h1>
+                                <h1 className="TitlePage">Filères</h1>
                             </div>
                             </Box>
                             <Box>
@@ -78,7 +78,7 @@ const UeScreen = () => {
                             data && data.map((d) => {
                                 return(
                                     <Grid item md={3} xs={12}>
-                                        <BoxCard title={d.code} subTitle={d.intitule} />
+                                        <BoxCard title={d.name} subTitle='' />
                                     </Grid>
                                 )
                             })
@@ -91,4 +91,4 @@ const UeScreen = () => {
     );
 };
 
-export default UeScreen
+export default SectorScreen

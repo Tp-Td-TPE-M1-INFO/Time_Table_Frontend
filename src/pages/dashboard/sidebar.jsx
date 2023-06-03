@@ -120,7 +120,7 @@ const Sidebarr = () => {
                 active={currentUrl === "/" ? true : false}
                 icon={
                   <GridViewOutlinedIcon
-                    style={{ color: colors.app.secondary }}
+                    style={{ color: currentUrl === "/" ? "#fff" : colors.app.secondary }}
                   />
                 }
               >
@@ -131,7 +131,7 @@ const Sidebarr = () => {
             <NavLink to="/student">
               <MenuItem
                 icon={
-                  <SchoolOutlinedIcon style={{ color: colors.app.secondary }} />
+                  <SchoolOutlinedIcon style={{ color: currentUrl === "/student" ? "#fff" : colors.app.secondary }} />
                 }
                 active={currentUrl === "/student" ? true : false}
               >
@@ -139,24 +139,11 @@ const Sidebarr = () => {
               </MenuItem>
             </NavLink>
 
-            <NavLink to="/admin">
-              <MenuItem
-                icon={
-                  <SupervisorAccountOutlinedIcon
-                    style={{ color: colors.app.secondary }}
-                  />
-                }
-                active={currentUrl === "/admin" ? true : false}
-              >
-                <Typography color={currentUrl === "/admin" ? "#fff" : "#3E4B5B"}>Administration</Typography>
-              </MenuItem>
-            </NavLink>
-
             <NavLink to="/timetable">
               <MenuItem
                 icon={
                   <CalendarMonthOutlinedIcon
-                    style={{ color: colors.app.secondary }}
+                    style={{ color: currentUrl === "/timetable" ? "#fff" : colors.app.secondary }}
                   />
                 }
                 active={currentUrl === "/timetable" ? true : false}
@@ -169,7 +156,7 @@ const Sidebarr = () => {
               <MenuItem
                 icon={
                   <OtherHousesOutlinedIcon
-                    style={{ color: colors.app.secondary }}
+                    style={{ color: currentUrl === "/salles" ? "#fff" : colors.app.secondary }}
                   />
                 }
                 active={currentUrl === "/salles" ? true : false}
@@ -181,7 +168,7 @@ const Sidebarr = () => {
               <MenuItem
                 icon={
                   <EditCalendarOutlinedIcon
-                    style={{ color: colors.app.secondary }}
+                    style={{ color: currentUrl === "/classes" ? "#fff" : colors.app.secondary }}
                   />
                 }
                 active={currentUrl === "/classes" ? true : false}
@@ -193,7 +180,7 @@ const Sidebarr = () => {
               <MenuItem
                 icon={
                   <Person2OutlinedIcon
-                    style={{ color: colors.app.secondary }}
+                    style={{ color: currentUrl === "/teachers" ? "#fff" : colors.app.secondary }}
                   />
                 }
                 active={currentUrl === "/teachers" ? true : false}
@@ -205,7 +192,7 @@ const Sidebarr = () => {
               <MenuItem
                 icon={
                   <Person2OutlinedIcon
-                    style={{ color: colors.app.secondary }}
+                    style={{ color: currentUrl === "/ues" ? "#fff" : colors.app.secondary }}
                   />
                 }
                 active={currentUrl === "/ues" ? true : false}
@@ -213,38 +200,53 @@ const Sidebarr = () => {
                 <Typography color={currentUrl === "/ues" ? "#fff" : "#3E4B5B"}>UE</Typography>
               </MenuItem>
             </NavLink>
-            <NavLink to="/etudiant2">
+            <NavLink to="/levels">
               <MenuItem
                 icon={
                   <Person2OutlinedIcon
-                    style={{ color: colors.app.secondary }}
+                    style={{ color: currentUrl === "/levels" ? "#fff" : colors.app.secondary }}
                   />
                 }
-                active={currentUrl === "/etudiant2" ? true : false}
+                active={currentUrl === "/levels" ? true : false}
               >
-                <Typography color="#3E4B5B">Jocelyn Pyw</Typography>
+                <Typography color={currentUrl === "/levels" ? "#fff" : "#3E4B5B"}>Niveaux</Typography>
               </MenuItem>
             </NavLink>
-            <NavLink to="/etudiant2">
+            <NavLink to="/sectors">
               <MenuItem
                 icon={
                   <HistoryToggleOffOutlinedIcon
-                    style={{ color: colors.app.secondary }}
+                    style={{ color: currentUrl === "/sectors" ? "#fff" : colors.app.secondary }}
                   />
                 }
+                active={currentUrl === "/sectors" ? true : false}
               >
-                <Typography color="#3E4B5B">Planning</Typography>
+                <Typography color={currentUrl === "/sectors" ? "#fff" : "#3E4B5B"}>Filières</Typography>
               </MenuItem>
             </NavLink>
+
             <NavLink to="/etudiant2">
               <MenuItem
                 icon={
                   <InventoryOutlinedIcon
-                    style={{ color: colors.app.secondary }}
+                    style={{ color: currentUrl === "/etudiant2" ? "#fff" : colors.app.secondary }}
                   />
                 }
               >
-                <Typography color="#3E4B5B">Evenement</Typography>
+                <Typography color={currentUrl === "/etudiant2" ? "#fff" : "#3E4B5B"}>Evenement</Typography>
+              </MenuItem>
+            </NavLink>
+
+            <NavLink to="/admin">
+              <MenuItem
+                icon={
+                  <SupervisorAccountOutlinedIcon
+                    style={{ color: currentUrl === "/admin" ? "#fff" : colors.app.secondary }}
+                  />
+                }
+                active={currentUrl === "/admin" ? true : false}
+              >
+                <Typography color={currentUrl === "/admin" ? "#fff" : "#3E4B5B"}>Administration</Typography>
               </MenuItem>
             </NavLink>
           </Menu>

@@ -19,6 +19,8 @@ import SalleScreen from "./pages/dashboard/SalleScreen"
 import ClasseScreen from './pages/dashboard/ClasseScreen'
 import UeScreen from './pages/dashboard/UeScreen'
 import EnseignantScreen from './pages/dashboard/EnseignantScreen.jsx'
+import LevelScreen from './pages/dashboard/LevelScreen.jsx'
+import SectorScreen from './pages/dashboard/SectorScreen.jsx'
 
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
         <Route path="/classes" element={<ClasseScreen />} />
         <Route path="/ues" element={<UeScreen />} />
         <Route path="/teachers" element={<EnseignantScreen />} />
+        <Route path="/levels" element={<LevelScreen />} />
+        <Route path="/sectors" element={<SectorScreen />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
