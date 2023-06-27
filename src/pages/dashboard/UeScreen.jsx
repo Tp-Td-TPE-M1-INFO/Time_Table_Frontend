@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux'
+import { getAllUE } from '../../redux/slices/UESlice'
+import ContainerC from '../../components/Container';
+import UECreate from './components/CreateUEForm';
+import {useDeleteUEMutation} from '../../redux/api'
 import "../../index.css";
-import axios from "axios";
+import axios from "../../axios";
 import Box from "@mui/material/Box";
 import Sidebarr from "./sidebar";
 import Topbar from "./topbar";
@@ -12,25 +17,26 @@ import IconButton from "@mui/material/IconButton";
 
 const UeScreen = () => {
 
-    const [data, setData] = useState([])
+    const data = useSelector((state) => state.UE.value)
+    const dispatch = useDispatch()
+    const [deleteUE] = useDeleteUEMutation();
+
+    // State when loading
+    const [isDone, setIsDone] = useState(false)
 
     useEffect(() => {
-        getData()
-    }, [])
-
-    const getData = async() => {
-        
-        try{
-            const response = await axios.get('https://timetable-4qip.onrender.com/api/ue')
-            setData(response.data)
-            
-        }catch(e){
-            console.log('errrrrrrrrr')
-        }
-
+        axios.get("/ue").then(({ data }) => dispatch(getAllUE(data)));
+    }, [dispatch])    
+    
+    const del = (id) => {
+        setIsDone(false)
+        console.log(id)
+        deleteUE(id).then(({ res }) => {
+            axios.get("/ue").then(({ data }) => dispatch(getAllUE(data)));
+        });
+        setIsDone(true)
     }
 
-    
     return (
         <div className="content">
             <Sidebarr />
@@ -68,7 +74,9 @@ const UeScreen = () => {
                             <Box>
                             <IconButton>
                                 <div className="addIconBox">
+                    <ContainerC component={ 
                                 <AddIcon sx={{ color: "#fff" }} />
+                    } formToDisplay={<UECreate/>} heading="Create UE"/>
                                 </div>
                             </IconButton>
                             </Box>
@@ -78,7 +86,7 @@ const UeScreen = () => {
                             data && data.map((d) => {
                                 return(
                                     <Grid item md={3} xs={12}>
-                                        <BoxCard title={d.code} subTitle={d.intitule} />
+                                        <BoxCard title={d.code} subTitle={d.intitule} method={() => del(d._id)} />
                                     </Grid>
                                 )
                             })

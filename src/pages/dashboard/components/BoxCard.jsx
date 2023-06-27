@@ -4,9 +4,12 @@ import bg from '../../../media/circle.svg'
 import { Box } from "@mui/system";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import IconButton from "@mui/material/IconButton";
+import { useAlert } from 'react-alert-with-buttons'
 import DriveFileRenameOutlineRoundedIcon from "@mui/icons-material/DriveFileRenameOutlineRounded";
 
-const BoxCard = ({ title, subTitle }) => {
+
+const BoxCard = ({title, subTitle, method }) => {
+	const alert = useAlert()
 	return (
 		<Box
 			sx={{
@@ -34,7 +37,29 @@ const BoxCard = ({ title, subTitle }) => {
 				<p className="salleName">{title}</p>
 			</div>
 			<div className="">
-				<DeleteRoundedIcon sx={{ color: "#000" }} />
+				<DeleteRoundedIcon sx={{ color: "#000", cursor:"pointer" }} onClick={() => 
+                    alert.open({
+                    message: `Really delete ${title} ?`,
+                    buttons: [
+                      {
+                        label: "Yes",
+                        onClick: () => {
+							method()
+                        },
+                        style: {
+                          backgroundColor: "var(--primary)",
+                          marginRight: "1rem",
+                          color: "white",
+                        },
+                      },
+                      {
+                        label: "No",
+                        onClick: () => {
+                          alert.close() 
+                        },
+                      },
+                    ],
+                  })}/>
 			</div>
 		</Box>
 		<Box
