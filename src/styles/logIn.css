@@ -80,6 +80,11 @@ div.more-login{
 .toggle-icon img{
     cursor: pointer;
 }
+
+.form-check-input:checked{
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
 @media screen and (min-width: 431px) and (max-width: 780px) {
     div.logo img {
         width: 180px;
