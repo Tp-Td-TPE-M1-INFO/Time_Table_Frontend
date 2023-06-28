@@ -107,7 +107,7 @@ const UeScreen = () => {
                             data.map((d, key) => {
                                 return(
                                     <Grid item md={3} xs={12} key={key}>
-                                        <BoxCard object={d} title={d.code} subTitle={d.intitule} deleteAction={() => del(d)} updateAction={() => update(d)} isEditing={isEditing} editingToggle={() => editing()}/>
+                                        <BoxCard title={d.code} subTitle={d.intitule} deleteAction={() => del(d)} updateAction={() => update(d)} isEditing={isEditing} editingToggle={() => editing()}/>
                                     </Grid>
                                 )
                             })

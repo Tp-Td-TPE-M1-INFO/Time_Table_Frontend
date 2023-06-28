@@ -31,6 +31,7 @@ const LevelScreen = () => {
     useEffect(() => {
         setIsLoading(true)
         axios.get("/level").then(({ data }) => {
+            console.log(data)
             dispatch(getAllLevel(data))
             setIsLoading(false)
         });

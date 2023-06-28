@@ -3,8 +3,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // create the api
 export const api = createApi({
     reducerPath: "api",
-    // baseQuery: fetchBaseQuery({ baseUrl: "https://timetable-4qip.onrender.com/api" }),
-    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api" }),
+    baseQuery: fetchBaseQuery({ baseUrl: "https://timetable-4qip.onrender.com/api" }),
+    // baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api" }),
     endpoints: (builder) => ({
         // //Sign up and log in
         // signup: builder.mutation({
@@ -148,6 +148,90 @@ export const api = createApi({
                 method: "DELETE",
             }),
         }),  
+        
+        // Hall endpoints
+        createHall: builder.mutation({
+            query: (hall) => ({
+                url: "/hall/create",
+                body: hall,
+                method: "POST",
+            }),
+        }),
+
+        getHall: builder.mutation({
+            query: (hall) => ({
+                url: `/hall/${hall._id}`,
+                method: "GET",
+            }),
+        }),
+
+        getAllHall: builder.mutation({
+            query: () => ({
+                url: "/hall/allHalls",
+                method: "GET",
+            }),
+        }),
+
+        updateHall: builder.mutation({
+            query: (hall) => ({
+                url: `/hall/update/${hall._id}`,
+                body: hall,
+                method: "PATCH",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },	
+            }),
+        }), 
+
+        deleteHall: builder.mutation({
+            query: (hall_id ) => ({
+                url: `/hall/delete/${hall_id}`,
+                method: "DELETE",
+            }),
+        }),  
+        
+        // Class endpoints
+        createClass: builder.mutation({
+            query: (_class) => ({
+                url: "/class",
+                body: _class,
+                method: "POST",
+            }),
+        }),
+
+        getClass: builder.mutation({
+            query: (_class) => ({
+                url: `/class/${_class._id}`,
+                method: "GET",
+            }),
+        }),
+
+        getAllClass: builder.mutation({
+            query: () => ({
+                url: "/class",
+                method: "GET",
+            }),
+        }),
+
+        updateClass: builder.mutation({
+            query: (_class) => ({
+                url: `/class/${_class._id}`,
+                body: _class,
+                method: "PATCH",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },	
+            }),
+        }), 
+
+        deleteClass: builder.mutation({
+            query: (class_id ) => ({
+                url: `/class/${class_id}`,
+                method: "DELETE",
+            }),
+        }),  
 
     }),
 });
@@ -170,6 +254,16 @@ export const {
     useGetAllSectorMutation,
     useUpdateSectorMutation,
     useDeleteSectorMutation,
+    useCreateHallMutation,
+    useGetHallMutation,
+    useGetAllHallMutation,
+    useUpdateHallMutation,
+    useDeleteHallMutation,
+    useCreateClassMutation,
+    useGetClassMutation,
+    useGetAllClassMutation,
+    useUpdateClassMutation,
+    useDeleteClassMutation,
 } = api;
 
 export default api;

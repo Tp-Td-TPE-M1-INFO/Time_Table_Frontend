@@ -13,7 +13,7 @@ import axios from "../../../axios";
 import { getAllUE } from "../../../redux/slices/UESlice";
 
 
-const BoxCard = ({object, title, subTitle, deleteAction, updateAction }) => {
+const BoxCard = ({title, subTitle, deleteAction, updateAction }) => {
 	const alert = useAlert()
     const dispatch = useDispatch()
     const [deleteUE] = useDeleteUEMutation();
