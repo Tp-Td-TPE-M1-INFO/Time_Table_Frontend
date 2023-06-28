@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux'
+import { getAllLevel } from '../../redux/slices/levelSlice'
+import ContainerC from '../../components/Container';
+import LevelCreate from './components/CreateLevelForm';
+import {useDeleteLevelMutation, useUpdateLevelMutation} from '../../redux/api'
 import "../../index.css";
-import axios from "axios";
+import axios from "../../axios";
 import Box from "@mui/material/Box";
 import Sidebarr from "./sidebar";
 import Topbar from "./topbar";
@@ -9,27 +14,43 @@ import Grid from "@mui/material/Grid";
 import HomeIcon from "@mui/icons-material/Home";
 import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
+import _ from "lodash";
+import Skeleton from "react-loading-skeleton";
 
 const LevelScreen = () => {
 
-    const [data, setData] = useState([])
+    const data = useSelector((state) => state.level.value)
+    const dispatch = useDispatch()
+    const [deleteLevel] = useDeleteLevelMutation();
+    const [updateLevel] = useUpdateLevelMutation();
+
+    // State when processing
+    const [isEditing, setIsEditing] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        getData()
-    }, [])
+        setIsLoading(true)
+        axios.get("/level").then(({ data }) => {
+            dispatch(getAllLevel(data))
+            setIsLoading(false)
+        });
+    }, [dispatch])   
 
-    const getData = async() => {
-        
-        try{
-            const response = await axios.get('https://timetable-4qip.onrender.com/api/level')
-            setData(response.data)
-            
-        }catch(e){
-            console.log('errrrrrrrrr')
-        }
-
+    const del = (id) => {
+        deleteLevel(id).then(() => {
+            axios.get("/level").then(({ data }) => dispatch(getAllLevel(data)));
+        });
+    }
+    const update = (data) => {
+        updateLevel(data).then(() => {
+            axios.get("/level").then(({ data }) => dispatch(getAllLevel(data)));
+        });
     }
 
+    const editing = () =>{
+        setIsEditing(true)
+    }
+    
     
     return (
         <div className="content">
@@ -68,17 +89,25 @@ const LevelScreen = () => {
                             <Box>
                             <IconButton>
                                 <div className="addIconBox">
+                    <ContainerC component={ 
                                 <AddIcon sx={{ color: "#fff" }} />
+                    } formToDisplay={<LevelCreate/>} heading="Create Level"/>
                                 </div>
                             </IconButton>
                             </Box>
                         </Box>
                         </Grid>
-                        {
-                            data && data.map((d) => {
+                        {   
+                            !data ?
+                            (_.range(8).map((index) => (
+                                <Grid key={index} md={3} xs={12} style={{margin:"1rem 0 0 2rem",}}>
+                                    <Skeleton width={"15rem"} height={"8rem"}/>
+                                </Grid>
+                              ))):
+                             data.map((d) => {
                                 return(
                                     <Grid item md={3} xs={12}>
-                                        <BoxCard title={d.name} subTitle='' />
+                                        <BoxCard title={d.name} subTitle='' deleteAction={() => del(d._id)} updateAction={() => update(d)} isEditing={isEditing} editingToggle={() => editing()}/>
                                     </Grid>
                                 )
                             })

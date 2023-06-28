@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import 'react-loading-skeleton/dist/skeleton.css'
 
 // React Alert import
 import { AlertProvider } from 'react-alert-with-buttons'

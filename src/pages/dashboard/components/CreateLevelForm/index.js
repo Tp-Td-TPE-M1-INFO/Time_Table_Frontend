@@ -1,8 +1,7 @@
 import {React, useState} from 'react';
 import { ToastContainer, toast } from "react-toastify";
-import {useCreateUEMutation} from '../../../../redux/api'
+import {useCreateLevelMutation} from '../../../../redux/api'
 import {
-    Tag,
     DriveFileRenameOutlineRounded
 } from "@mui/icons-material";
 
@@ -10,27 +9,23 @@ import "./style.css"
 import Entry from "../../../../components/Entry"
 import FormValidation from "../../../../components/FormValidation"
 import { useDispatch } from 'react-redux'
-import { getAllUE } from '../../../../redux/slices/UESlice'
+import { getAllLevel } from '../../../../redux/slices/levelSlice'
 import axios from "../../../../axios";
 
-export const UECreate
+export const LevelCreate
  = ({refresh}) => {
     const dispatch = useDispatch()
 
     // States for registration
-    const [code, setCode] = useState("");
-    const [intitule, setIntitule] = useState("");
-    const [createUE] = useCreateUEMutation();
+    const [name, setName] = useState("");
+    const [createLevel] = useCreateLevelMutation();
     
     // State when loading
     const [isLoading, setIsLoading] = useState(false)
     
     // Handling changes
-    const handleCode = (e) => {
-        setCode(e.target.value);
-    };
-    const handleIntitule = (e) => {
-        setIntitule(e.target.value);
+    const handlename = (e) => {
+        setName(e.target.value);
     };
 
     const generateError = (err) =>
@@ -59,17 +54,9 @@ export const UECreate
         e.preventDefault();
         setIsLoading(true)
         
-        if (code === '' || intitule === '') {            
-            if (code === ""){
-                setIsLoading(false)
-                return generateError("Please enter the code.")
-            } 
-            else if (intitule === ""){
-                setIsLoading(false)
-                return generateError("Please enter the description.")
-            }else{
-
-            }
+        if (name === '') {       
+            setIsLoading(false)
+            return generateError("Please enter the name.")
         } else {
             create()
         }
@@ -77,18 +64,18 @@ export const UECreate
 
     const create = async() => {
         
-        createUE({ code, intitule}).then(({ data }) => {
-            axios.get("/ue").then(({ data }) => dispatch(getAllUE(data)));
+        createLevel({ name}).then(({ data }) => {
+            console.log(data)
+            axios.get("/level").then(({ data }) => dispatch(getAllLevel(data)));
         });
         setIsLoading(false)
-        return generateSuccess("Succesfully created " + code)
+        return generateSuccess("Succesfully created " + name)
     }
 
     return (
         
         <form className="setting-form">
-            <Entry handler={handleCode} type="text" identifier="full-name-text" label="Enter the code" isImage={false} muIcon={<Tag sx={{color:"white",  fontSize:"30px"}}/>}/>
-            <Entry handler={handleIntitule} type="text" identifier="registration-number-text" label="Enter the description" isImage={false} muIcon={<DriveFileRenameOutlineRounded sx={{color:"white",  fontSize:"30px"}}/>}/>
+            <Entry handler={handlename} type="text" identifier="full-name-text" label="Enter the name" isImage={false} muIcon={<DriveFileRenameOutlineRounded sx={{color:"white",  fontSize:"30px"}}/>}/>
         
             <FormValidation isLoading={isLoading} submitHandler={handleSubmit} primaryLabel="Save"/>
             <ToastContainer/>
@@ -96,5 +83,5 @@ export const UECreate
 
     );
 };
-export default UECreate
+export default LevelCreate
 ;
