@@ -44,7 +44,7 @@ const rows = [
     createData('China', 'CN', 1403500365, 9596961, "SIGL"),
 ]
 
-export default function UserTable() {
+export default function TeacherTable() {
 
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(10)
@@ -67,7 +67,7 @@ export default function UserTable() {
 
         try {
 
-            const response = await axios.get('/student/all')
+            const response = await axios.get('/teacher/all')
             setStudents(response.data)
             
         } catch (e) {

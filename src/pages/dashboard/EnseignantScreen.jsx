@@ -4,10 +4,10 @@ import Sidebarr from "./sidebar"
 import "../../index.css"
 import Box from "@mui/material/Box"
 import Grid from "@mui/material/Grid"
-import UserTable from "./components/UserTable"
 import HomeIcon from "@mui/icons-material/Home"
 import AddIcon from "@mui/icons-material/Add"
 import IconButton from "@mui/material/IconButton"
+import TeacherTable from "./components/TeacherTable"
 
 
 const EnseignantScreen = () => {
@@ -54,7 +54,7 @@ const EnseignantScreen = () => {
 						</Box>
 					</Grid>
 
-					<UserTable />
+					<TeacherTable />
 				</main>
 			</Box>
 		</div>
