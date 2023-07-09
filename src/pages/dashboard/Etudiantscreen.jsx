@@ -8,6 +8,8 @@ import UserTable from "./components/UserTable"
 import HomeIcon from "@mui/icons-material/Home"
 import AddIcon from "@mui/icons-material/Add"
 import IconButton from "@mui/material/IconButton"
+import ContainerC from "../../components/Container"
+import CreateStudentForm from "./components/CreateStudentForm"
 
 
 const Etudiantscreen = () => {
@@ -44,10 +46,12 @@ const Etudiantscreen = () => {
 									<h1 className="TitlePage">Etudiants</h1>
 								</div>
 							</Box>
-							<Box>
-								<IconButton>
+							<Box >
+								<IconButton onClick={()=>console.log('Je suis dans l ajout dun students')}>
 									<div className="addIconBox">
-										<AddIcon sx={{ color: "#fff" }} />
+									<ContainerC component={ 
+                                  <AddIcon sx={{ color: "#fff" }} />
+                                             } formToDisplay={<CreateStudentForm/>} heading="Create Student"/>
 									</div>
 								</IconButton>
 							</Box>

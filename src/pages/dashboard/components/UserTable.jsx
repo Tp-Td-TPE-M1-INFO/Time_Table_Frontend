@@ -8,29 +8,44 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import axios from '../../../axios'
+import IconButton from "@mui/material/IconButton";
+import AddIcon from "@mui/icons-material/Add";
+import BorderColorIcon from '@mui/icons-material/BorderColor';
+
+import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
+import DoneIcon from "@mui/icons-material/Done";
+import { response } from 'express';
 
 const columns = [
     { id: 'name', label: 'Matricule', minWidth: 170 },
-    { id: 'code', label: 'Nom', minWidth: 100 },
+    { id: 'code', label: 'Nom', minWidth: 170 },
     {
         id: 'population',
         label: 'Prénom',
         minWidth: 170,
-        align: 'right',
+       
         format: (value) => value.toLocaleString('en-US'),
     },
     {
         id: 'size',
         label: 'Email',
         minWidth: 170,
-        align: 'right',
         format: (value) => value.toLocaleString('en-US'),
     },
     {
         id: 'classe',
         label: 'Classe',
         minWidth: 170,
-        align: 'center',
+    },
+    {
+        id: 'edit',
+        label: 'Edit',
+        minWidth: 100,
+    },
+    {
+        id: 'delete',
+        label: 'Delete',
+        minWidth: 100,
     },
 ]
 
@@ -46,6 +61,7 @@ const rows = [
 
 export default function UserTable() {
 
+
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(10)
     const [students, setStudents] = useState([])
@@ -53,7 +69,17 @@ export default function UserTable() {
     useEffect(() => {
         getData()
     }, [])
+//   const deleteStudent = async (d) => {
+//       axios.delete("/api/student/delete",d).then((response)=>{
+//         setIsLoading(false);
+//         console.log("Je suis dans le log Success pour supprimer un user");
 
+
+//       }).catch((error)=>{
+//         setIsLoading(false);
+//         console.log("Je suis dans le log Error pour supprimer un user");
+
+//       }) }
     const handleChangePage = (event, newPage) => {
         setPage(newPage)
     }
@@ -74,7 +100,7 @@ export default function UserTable() {
             console.log(e);
         }
     }
-    console.log(students)
+    // console.log('Les data de student sont : ',students)
 
     return (
         <Paper sx={{ width: '98%', overflow: 'hidden' }}>
@@ -99,16 +125,34 @@ export default function UserTable() {
                         .map((row) => {
                             return (
                                 <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                                    {columns.map((column) => {
-                                    const value = row[column.id];
-                                    return (
-                                        <TableCell key={column.id} align={column.align}>
-                                        {column.format && typeof value === 'number'
-                                            ? column.format(value)
-                                            : value}
-                                        </TableCell>
-                                    )
-                                    })}
+                                     <TableCell key={row.id} align={row.align}>
+                                        {row.registerNumber}
+                                     </TableCell>
+                                     <TableCell key={row.id} align={row.align}>
+                                        {row.name}
+                                     </TableCell>
+                                     <TableCell key={row.id} align={row.align}>
+                                        {row.surname}
+                                     </TableCell>
+                                     <TableCell key={row.id} align={row.align}>
+                                        {row.email}
+                                     </TableCell>
+                                     <TableCell key={row.id} align={row.align}>
+                                        XXXX
+                                     </TableCell>
+                                     <TableCell key={row.id} align={row.align} onClick={()=>console.log("je euis sur le point de supprimer un student",row._id)}>
+                                        <IconButton 
+                                       
+                                        >
+                                             <DeleteRoundedIcon sx={{ color: "red", cursor:"pointer" }}/>
+
+                                        </IconButton>
+                                     </TableCell>
+                                     <TableCell key={row.id} align={row.align}>
+                                     <IconButton><BorderColorIcon sx={{ color: "#00009c", cursor:"pointer" }}/></IconButton>:
+                                     </TableCell>
+                                    
+                                    
                                 </TableRow>
                             )
                         })}
