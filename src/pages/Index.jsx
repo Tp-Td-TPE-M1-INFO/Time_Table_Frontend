@@ -136,22 +136,6 @@ const Index = ({ classes }) => {
         setEnd(event.end)
     }
     
-    const createPlanning = async () => {
-
-        const data = {
-
-        }
-
-        try {
-            
-            const response = await axios.post('', data) 
-            console.log(response.data)
-
-        } catch (e) {
-            console.log(e)
-        }
-    }
-    console.log(hall);
 
     return (
         // <div style={{ backgroundImage: `url(${cover})`, backgroundSize: 'cover' }}>
