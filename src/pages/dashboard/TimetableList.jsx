@@ -73,8 +73,8 @@ const TimetableList = () => {
     console.log(planning)
 
     return (
-        <div>
-            <div className="search-bar">
+        <div className="mb-5">
+            {/* <div className="search-bar">
                 <TextField
                     label="Rechercher un emploi de temps"
                     value={searchTerm}
@@ -82,7 +82,15 @@ const TimetableList = () => {
                     variant="outlined"
                     fullWidth
                 />
-            </div>
+            </div> */}
+
+            <p className="text-3xl text-center mt-4 mb-0 fs-4 text-uppercase fw-bold">
+                Emplois de temps Université de Yaounde 1
+            </p>
+            <p className='text-center text-secondary'>
+                Veuillez sélectionner une salles, une classe ou un enseigant afin de voir son emplois de temps
+            </p>
+
             <div className="filter-selects my-4 d-flex justify-content-between">
                 <FormControl>
                     <InputLabel id="class-select-label">Classe</InputLabel>

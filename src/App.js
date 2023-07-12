@@ -21,6 +21,7 @@ import UeScreen from './pages/dashboard/UeScreen'
 import EnseignantScreen from './pages/dashboard/EnseignantScreen.jsx'
 import LevelScreen from './pages/dashboard/LevelScreen.jsx'
 import SectorScreen from './pages/dashboard/SectorScreen.jsx'
+import HomePage from "./pages/HomePage";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route index element={<Home />} />
+        <Route path="/index" element={<HomePage />} />
         <Route path="/sign-up" element={<UserSignUp />} />
         <Route path="/admin" element={<AdminScreen />} />
         <Route path="/student" element={<Etudiantscreen />} />
