@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { getAllUE } from "../../../../redux/slices/UESlice";
 import axios from "../../../../axios";
 
-export const CreateStudentForm = ({ refresh }) => {
+export const UpdateStudentForm = ({ refresh }) => {
   const dispatch = useDispatch();
 
   // States for registration
@@ -172,4 +172,4 @@ export const CreateStudentForm = ({ refresh }) => {
     </form>
   );
 };
-export default CreateStudentForm;
+export default UpdateStudentForm;

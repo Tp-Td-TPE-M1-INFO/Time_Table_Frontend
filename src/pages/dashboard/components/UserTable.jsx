@@ -11,10 +11,9 @@ import axios from "../../../axios";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
-
+import { ToastContainer, toast } from "react-toastify";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import DoneIcon from "@mui/icons-material/Done";
-// import { response } from 'express';
 
 const columns = [
   { id: "name", label: "Matricule", minWidth: 170 },
@@ -63,20 +62,44 @@ export default function UserTable() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [students, setStudents] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     getData();
-  }, []);
-  //   const deleteStudent = async (d) => {
-  //       axios.delete("/api/student/delete",d).then((response)=>{
-  //         setIsLoading(false);
-  //         console.log("Je suis dans le log Success pour supprimer un user");
+  }, [isLoading]);
 
-  //       }).catch((error)=>{
-  //         setIsLoading(false);
-  //         console.log("Je suis dans le log Error pour supprimer un user");
-
-  //       }) }
+  const generateError = (err) =>
+    toast.error(err, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "colored",
+    });
+  const generateSuccess = (msg) =>
+    toast.success(msg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "colored",
+    });
+  const deleteStudent = (d) => {
+    axios
+      .delete(`/student/delete/${d}`)
+      .then((response) => {
+        setIsLoading(!isLoading);
+        generateSuccess("Deleted Succes");
+      })
+      .catch((error) => {
+        // setIsLoading(false);
+        generateError(error);
+      });
+  };
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -98,6 +121,7 @@ export default function UserTable() {
 
   return (
     <Paper sx={{ width: "98%", overflow: "hidden" }}>
+      <ToastContainer />
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -138,17 +162,8 @@ export default function UserTable() {
                     <TableCell key={row.id} align={row.align}>
                       XXXX
                     </TableCell>
-                    <TableCell
-                      key={row.id}
-                      align={row.align}
-                      onClick={() =>
-                        console.log(
-                          "je euis sur le point de supprimer un student",
-                          row._id
-                        )
-                      }
-                    >
-                      <IconButton>
+                    <TableCell key={row.id} align={row.align}>
+                      <IconButton onClick={() => deleteStudent(row._id)}>
                         <DeleteRoundedIcon
                           sx={{ color: "red", cursor: "pointer" }}
                         />
