@@ -11,14 +11,17 @@ import { useDispatch } from "react-redux";
 import { getAllUE } from "../../../../redux/slices/UESlice";
 import axios from "../../../../axios";
 
-export const CreateStudentForm = (props) => {
+export const UpdateteacherForm = (props) => {
   const dispatch = useDispatch();
+  const studentId = props.studentInfo._id;
 
   // States for registration
-  const [name, setName] = useState("");
-  const [registerNumber, setRegisterNumber] = useState("");
-  const [surname, setSurName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState(props.studentInfo.name);
+  const [registerNumber, setRegisterNumber] = useState(
+    props.studentInfo.registerNumber
+  );
+  const [surname, setSurName] = useState(props.studentInfo.surname);
+  const [email, setEmail] = useState(props.studentInfo.email);
   // const [password, setPassword] = useState('')
   const [createUE] = useCreateUEMutation();
 
@@ -81,20 +84,19 @@ export const CreateStudentForm = (props) => {
 
   const CreateStudent = async () => {
     const values = {
+      id: studentId,
       name: name,
       surname: surname,
       email: email,
-      password: "12345678",
-      registerNumber: registerNumber,
       phone: "690460271",
     };
 
     axios
-      .post("https://timetable-4qip.onrender.com/api/student/register", values)
+      .patch("https://timetable-4qip.onrender.com/api/student/update", values)
       .then((response) => {
         setIsLoading(false);
-        props.setRealTime(!props.realTime);
-        return generateSuccess("Adding successful");
+        props.setIsLoading(!props.isLoading);
+        return generateSuccess("Update successful");
       })
       .catch((error) => {
         setIsLoading(false);
@@ -122,8 +124,10 @@ export const CreateStudentForm = (props) => {
         label="Enter the Matricule"
         isImage={false}
         muIcon={<Tag sx={{ color: "white", fontSize: "30px" }} />}
+        value={registerNumber}
       />
       <Entry
+        value={name}
         handler={handleName}
         type="text"
         identifier="registration-number-text"
@@ -136,6 +140,7 @@ export const CreateStudentForm = (props) => {
         }
       />
       <Entry
+        value={surname}
         handler={handleSurName}
         type="text"
         identifier="registration-number-text"
@@ -148,6 +153,7 @@ export const CreateStudentForm = (props) => {
         }
       />
       <Entry
+        value={email}
         handler={handleEmail}
         type="email"
         identifier="registration-number-text"
@@ -163,10 +169,10 @@ export const CreateStudentForm = (props) => {
       <FormValidation
         isLoading={isLoading}
         submitHandler={handleSubmit}
-        primaryLabel="Save"
+        primaryLabel="Update"
       />
       <ToastContainer />
     </form>
   );
 };
-export default CreateStudentForm;
+export default UpdateteacherForm;

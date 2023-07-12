@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Topbar from "./topbar";
 import Sidebarr from "./sidebar";
 import "../../index.css";
@@ -12,6 +12,8 @@ import ContainerC from "../../components/Container";
 import CreateStudentForm from "./components/CreateStudentForm";
 
 const Etudiantscreen = () => {
+  const [realTime, setRealTime] = useState(true);
+
   return (
     <div className="content">
       <Sidebarr />
@@ -45,15 +47,16 @@ const Etudiantscreen = () => {
                 </div>
               </Box>
               <Box>
-                <IconButton
-                  onClick={() =>
-                    console.log("Je suis dans l ajout dun students")
-                  }
-                >
+                <IconButton>
                   <div className="addIconBox">
                     <ContainerC
                       component={<AddIcon sx={{ color: "#fff" }} />}
-                      formToDisplay={<CreateStudentForm />}
+                      formToDisplay={
+                        <CreateStudentForm
+                          realTime={realTime}
+                          setRealTime={setRealTime}
+                        />
+                      }
                       heading="Create Student"
                     />
                   </div>
@@ -62,7 +65,7 @@ const Etudiantscreen = () => {
             </Box>
           </Grid>
 
-          <UserTable />
+          <UserTable realTime={realTime} setRealTime={setRealTime} />
         </main>
       </Box>
     </div>

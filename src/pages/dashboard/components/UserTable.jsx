@@ -60,7 +60,7 @@ const rows = [
   createData("China", "CN", 1403500365, 9596961, "SIGL"),
 ];
 
-export default function UserTable() {
+export default function UserTable(props) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [students, setStudents] = useState([]);
@@ -68,7 +68,7 @@ export default function UserTable() {
 
   useEffect(() => {
     getData();
-  }, [isLoading]);
+  }, [isLoading, props.realTime]);
 
   const generateError = (err) =>
     toast.error(err, {

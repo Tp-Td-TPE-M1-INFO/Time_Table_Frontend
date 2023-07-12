@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { getAllUE } from "../../../../redux/slices/UESlice";
 import axios from "../../../../axios";
 
-export const CreateStudentForm = (props) => {
+export const CreateTeacherForm = (props) => {
   const dispatch = useDispatch();
 
   // States for registration
@@ -68,6 +68,7 @@ export const CreateStudentForm = (props) => {
     if (name === "" || surname === "") {
       if (name === "") {
         setIsLoading(false);
+
         return generateError("Please enter the name.");
       } else if (surname === "") {
         setIsLoading(false);
@@ -90,7 +91,7 @@ export const CreateStudentForm = (props) => {
     };
 
     axios
-      .post("https://timetable-4qip.onrender.com/api/student/register", values)
+      .post("https://timetable-4qip.onrender.com/api/teacher/register", values)
       .then((response) => {
         setIsLoading(false);
         props.setRealTime(!props.realTime);
@@ -169,4 +170,4 @@ export const CreateStudentForm = (props) => {
     </form>
   );
 };
-export default CreateStudentForm;
+export default CreateTeacherForm;
