@@ -14,6 +14,8 @@ import BorderColorIcon from "@mui/icons-material/BorderColor";
 import { ToastContainer, toast } from "react-toastify";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import DoneIcon from "@mui/icons-material/Done";
+import ContainerC from "../../../components/Container";
+import UpdateStudentForm from "./UpdateStudentForm";
 
 const columns = [
   { id: "name", label: "Matricule", minWidth: 170 },
@@ -171,8 +173,20 @@ export default function UserTable() {
                     </TableCell>
                     <TableCell key={row.id} align={row.align}>
                       <IconButton>
-                        <BorderColorIcon
-                          sx={{ color: "#00009c", cursor: "pointer" }}
+                        <ContainerC
+                          component={
+                            <BorderColorIcon
+                              sx={{ color: "#00009c", cursor: "pointer" }}
+                            />
+                          }
+                          formToDisplay={
+                            <UpdateStudentForm
+                              studentInfo={row}
+                              setIsLoading={setIsLoading}
+                              isLoading={isLoading}
+                            />
+                          }
+                          heading="Update Student"
                         />
                       </IconButton>
                       :
